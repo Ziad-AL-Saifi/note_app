@@ -1,0 +1,22 @@
+import 'package:flutter/material.dart';
+import 'package:note/widgets/showModelSheet.dart';
+
+class floatingActionButton extends StatelessWidget {
+  const floatingActionButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+      child: Icon(Icons.add),
+      onPressed: () {
+        showModalBottomSheet(
+            context: context,
+            builder: (context) {
+              return customShowModelBottomSheet();
+            });
+      },
+    );
+  }
+}
