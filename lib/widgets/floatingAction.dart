@@ -12,9 +12,11 @@ class floatingActionButton extends StatelessWidget {
       child: Icon(Icons.add),
       onPressed: () {
         showModalBottomSheet(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
             context: context,
             builder: (context) {
-              return customShowModelBottomSheet();
+              return CustomShowModelBottomSheet();
             });
       },
     );

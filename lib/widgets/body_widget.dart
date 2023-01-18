@@ -16,7 +16,10 @@ class bodyWidget extends StatelessWidget {
         SizedBox(
           height: 60,
         ),
-        CustomAppBar(),
+        CustomAppBar(
+          title: "Note",
+          iconV: Icon(Icons.search, size: 32),
+        ),
         SizedBox(height: 15),
         Expanded(
           child: ListView.builder(
