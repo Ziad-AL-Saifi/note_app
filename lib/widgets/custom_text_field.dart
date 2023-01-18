@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -6,18 +7,30 @@ import '../constante.dart';
 OutlineInputBorder getColor(Color x) {
   return OutlineInputBorder(
     borderSide: BorderSide(color: x),
-    borderRadius: BorderRadius.circular(16),
+    borderRadius: BorderRadius.circular(10),
   );
 }
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({super.key, required this.hint, this.minSize = 1});
+  const CustomTextField({
+    Key? key,
+    required this.hint,
+    required this.minSize,
+    this.onSave,
+  }) : super(key: key);
   final String hint;
   final int minSize;
+  final Function(String?)? onSave;
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'you need to full that';
+        }
+      },
+      onSaved: onSave,
       cursorColor: kColor,
       maxLines: minSize,
       decoration: InputDecoration(

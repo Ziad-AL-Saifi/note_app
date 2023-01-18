@@ -16,7 +16,7 @@ class EditView extends StatelessWidget {
           ),
           CustomAppBar(title: 'Edit', iconV: Icon(Icons.check, size: 32)),
           SizedBox(height: 15),
-          CustomTextField(hint: "Title"),
+          CustomTextField(hint: "Title", minSize: 1),
           SizedBox(height: 16),
           CustomTextField(hint: 'edit', minSize: 5),
         ]),
