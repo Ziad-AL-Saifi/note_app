@@ -12,23 +12,30 @@ class CustomShowModelBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => AddCubit(),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 24),
-        child: BlocConsumer<AddCubit, AddState>(
-          listener: (context, state) {
-            if (state is AddSuccess) {
-              Navigator.pop(context);
-            } else if (state is AddFiald) {
-              debugPrint(state.errMassege);
-            }
-          },
-          builder: (context, state) {
-            return SingleChildScrollView(
+      child: BlocConsumer<AddCubit, AddState>(
+        listener: (context, state) {
+          if (state is AddSuccess) {
+            Navigator.pop(context);
+          } else if (state is AddFiald) {
+            debugPrint(state.errMassege);
+          }
+        },
+        builder: (context, state) {
+          return Padding(
+            padding: EdgeInsets.only(
+                left: 12,
+                right: 12,
+                top: 24,
+                bottom: MediaQuery.of(context).viewInsets.bottom),
+            child: SingleChildScrollView(
                 child: AbsorbPointer(
                     absorbing: state is AddLoading ? true : false,
-                    child: const CustomForm()));
-          },
-        ),
+                    child: const Padding(
+                      padding: EdgeInsets.only(bottom: 24),
+                      child: CustomForm(),
+                    ))),
+          );
+        },
       ),
     );
   }

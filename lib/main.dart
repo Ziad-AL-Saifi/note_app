@@ -12,7 +12,7 @@ void main() async {
   Hive.registerAdapter(NoteModelAdapter());
   await Hive.openBox(kNewBox);
 
-  runApp(NoteApp());
+  runApp(const NoteApp());
 }
 
 class NoteApp extends StatelessWidget {
@@ -22,7 +22,7 @@ class NoteApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(brightness: Brightness.dark, fontFamily: 'Poppins'),
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }

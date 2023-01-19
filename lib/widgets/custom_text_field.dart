@@ -28,8 +28,6 @@ class CustomTextField extends StatelessWidget {
       validator: (value) {
         if (value == null || value.isEmpty) {
           return 'you need to full that';
-        } else {
-          return 'success';
         }
       },
       onSaved: onSave,
@@ -37,7 +35,7 @@ class CustomTextField extends StatelessWidget {
       maxLines: minSize,
       decoration: InputDecoration(
           hintText: hint,
-          hintStyle: TextStyle(color: kColor),
+          hintStyle: const TextStyle(color: kColor),
           focusedBorder: getColor(kColor),
           enabledBorder: getColor(Colors.white),
           border: getColor(kColor)),
