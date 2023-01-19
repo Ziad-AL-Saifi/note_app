@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'custom_appbar.dart';
 import 'note_item.dart';
 
-class bodyWidget extends StatelessWidget {
-  const bodyWidget({
+class BodyWidget extends StatelessWidget {
+  const BodyWidget({
     Key? key,
   }) : super(key: key);
 
@@ -13,21 +13,21 @@ class bodyWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Column(children: [
-        SizedBox(
+        const SizedBox(
           height: 60,
         ),
-        CustomAppBar(
+        const CustomAppBar(
           title: "Note",
           iconV: Icon(Icons.search, size: 32),
         ),
-        SizedBox(height: 15),
+        const SizedBox(height: 15),
         Expanded(
           child: ListView.builder(
               padding: EdgeInsets.zero,
               itemCount: 10,
               itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.only(top: 10),
+                return const Padding(
+                  padding: EdgeInsets.only(top: 10),
                   child: Custom_notes_item(),
                 );
               }),

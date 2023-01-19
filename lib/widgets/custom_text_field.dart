@@ -28,6 +28,8 @@ class CustomTextField extends StatelessWidget {
       validator: (value) {
         if (value == null || value.isEmpty) {
           return 'you need to full that';
+        } else {
+          return 'success';
         }
       },
       onSaved: onSave,

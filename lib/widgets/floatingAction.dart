@@ -9,14 +9,14 @@ class floatingActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      child: Icon(Icons.add),
+      child: const Icon(Icons.add),
       onPressed: () {
         showModalBottomSheet(
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
             context: context,
             builder: (context) {
-              return CustomShowModelBottomSheet();
+              return const CustomShowModelBottomSheet();
             });
       },
     );

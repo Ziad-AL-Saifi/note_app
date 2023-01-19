@@ -34,7 +34,7 @@ class _CustomFormState extends State<CustomForm> {
               title = p0;
             },
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           CustomTextField(
@@ -44,25 +44,41 @@ class _CustomFormState extends State<CustomForm> {
               note = p0;
             },
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
-          GestureDetector(
-            onTap: () {
-              if (custmKey.currentState!.validate()) {
-                var p = custmKey.currentState!.save();
-              } else {
-                autovalidateMode = AutovalidateMode.always;
-                setState(() {});
-              }
+          BlocBuilder<AddCubit, AddState>(
+            builder: (context, state) {
+              return GestureDetector(
+                onTap: () {
+                  if (custmKey.currentState!.validate()) {
+                    custmKey.currentState!.save();
+                    var noteModel = NoteModel(
+                        title: title!,
+                        note: note!,
+                        time: DateTime.now().toString(),
+                        color: Colors.blue.value);
+                    BlocProvider.of<AddCubit>(context).addNote(noteModel);
+                  } else {
+                    autovalidateMode = AutovalidateMode.always;
+                    setState(() {});
+                  }
+                },
+                child: Container(
+                  width: double.infinity,
+                  height: 60,
+                  decoration: BoxDecoration(
+                      color: kColor, borderRadius: BorderRadius.circular(10)),
+                  child: state is AddLoading
+                      ? const Center(
+                          child: CircularProgressIndicator(
+                            color: Colors.white,
+                          ),
+                        )
+                      : const Center(child: Text('Add')),
+                ),
+              );
             },
-            child: Container(
-              width: double.infinity,
-              height: 60,
-              decoration: BoxDecoration(
-                  color: kColor, borderRadius: BorderRadius.circular(10)),
-              child: const Center(child: Text('Add')),
-            ),
           )
         ],
       ),

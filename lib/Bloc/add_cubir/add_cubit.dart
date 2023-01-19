@@ -13,8 +13,9 @@ class AddCubit extends Cubit<AddState> {
     emit(AddLoading());
     try {
       var newData = Hive.box(kNewBox);
-      emit(AddSuccess());
+
       await newData.add(data);
+      emit(AddSuccess());
     } catch (e) {
       emit(AddFiald(errMassege: e.toString()));
     }

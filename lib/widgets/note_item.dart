@@ -13,17 +13,17 @@ class Custom_notes_item extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => EditView(),
+              builder: (context) => const EditView(),
             ));
       }),
       child: Container(
-        padding: EdgeInsets.only(left: 24, top: 24),
+        padding: const EdgeInsets.only(left: 24, top: 24),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16), color: Colors.amber[200]),
         child: Column(
           children: [
             ListTile(
-                title: Text(
+                title: const Text(
                   'Flutter tips',
                   style: TextStyle(color: Colors.black, fontSize: 32),
                 ),
@@ -36,7 +36,7 @@ class Custom_notes_item extends StatelessWidget {
                   ),
                 ),
                 trailing: IconButton(
-                  icon: Icon(Icons.delete),
+                  icon: const Icon(Icons.delete),
                   color: Colors.black,
                   iconSize: 32,
                   onPressed: () {},

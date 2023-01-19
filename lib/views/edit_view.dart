@@ -10,7 +10,7 @@ class EditView extends StatelessWidget {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
-        child: Column(children: [
+        child: Column(children: const [
           SizedBox(
             height: 60,
           ),
