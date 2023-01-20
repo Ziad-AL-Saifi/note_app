@@ -18,7 +18,7 @@ class Custom_notes_item extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const EditView(),
+              builder: (context) => EditView(note: data),
             ));
       }),
       child: Container(

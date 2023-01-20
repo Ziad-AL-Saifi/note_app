@@ -17,9 +17,11 @@ class CustomTextField extends StatelessWidget {
     required this.hint,
     required this.minSize,
     this.onSave,
+    this.onChanged,
   }) : super(key: key);
   final String hint;
   final int minSize;
+  final Function(String)? onChanged;
   final Function(String?)? onSave;
 
   @override
@@ -30,6 +32,7 @@ class CustomTextField extends StatelessWidget {
           return 'you need to full that';
         }
       },
+      onChanged: onChanged,
       onSaved: onSave,
       cursorColor: kColor,
       maxLines: minSize,

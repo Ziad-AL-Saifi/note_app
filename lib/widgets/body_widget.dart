@@ -11,7 +11,6 @@ class BodyWidget extends StatelessWidget {
   const BodyWidget({
     Key? key,
   }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NotesCubit, NotesState>(
