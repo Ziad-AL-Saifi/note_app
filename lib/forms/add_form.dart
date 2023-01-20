@@ -48,6 +48,10 @@ class _CustomFormState extends State<CustomForm> {
           const SizedBox(
             height: 20,
           ),
+          const ListColorCircle(),
+          const SizedBox(
+            height: 20,
+          ),
           BlocBuilder<AddCubit, AddState>(
             builder: (context, state) {
               return GestureDetector(
@@ -85,5 +89,57 @@ class _CustomFormState extends State<CustomForm> {
         ],
       ),
     );
+  }
+}
+
+class ListColorCircle extends StatefulWidget {
+  const ListColorCircle({super.key});
+
+  @override
+  State<ListColorCircle> createState() => _ListColorCircleState();
+}
+
+class _ListColorCircleState extends State<ListColorCircle> {
+  int isClick2 = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 36 * 2,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: c.length,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: GestureDetector(
+                onTap: () {
+                  isClick2 = index;
+                  setState(() {});
+                },
+                child: ColorItem(
+                  isClick: isClick2 == index,
+                  index: index,
+                )),
+          );
+        },
+      ),
+    );
+  }
+}
+
+class ColorItem extends StatelessWidget {
+  const ColorItem({super.key, required this.index, required this.isClick});
+  final int index;
+  final bool isClick;
+
+  @override
+  Widget build(BuildContext context) {
+    return isClick
+        ? CircleAvatar(
+            radius: 36,
+            backgroundColor: Colors.white,
+            child: CircleAvatar(radius: 34, backgroundColor: Color(c[index])))
+        : CircleAvatar(radius: 34, backgroundColor: Color(c[index]));
   }
 }
