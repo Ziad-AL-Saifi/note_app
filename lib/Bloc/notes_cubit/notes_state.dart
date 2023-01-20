@@ -6,18 +6,4 @@ abstract class NotesState {}
 
 class NotesInitial extends NotesState {}
 
-class NotesLoading extends NotesState {}
-
-class NotesSuccess extends NotesState {
-  List<NoteModel> data;
-  NotesSuccess({
-    required this.data,
-  });
-}
-
-class Notesfield extends NotesState {
-  String errMassege;
-  Notesfield({
-    required this.errMassege,
-  });
-}
+class NoteSuccess extends NotesState {}

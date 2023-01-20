@@ -1,11 +1,16 @@
+import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:note/Bloc/notes_cubit/notes_cubit.dart';
+import 'package:note/model/note_models.dart';
 import 'package:note/views/edit_view.dart';
 
 class Custom_notes_item extends StatelessWidget {
   const Custom_notes_item({
     Key? key,
+    required this.data,
   }) : super(key: key);
-
+  final NoteModel data;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -23,14 +28,14 @@ class Custom_notes_item extends StatelessWidget {
         child: Column(
           children: [
             ListTile(
-                title: const Text(
-                  'Flutter tips',
-                  style: TextStyle(color: Colors.black, fontSize: 32),
+                title: Text(
+                  data.title,
+                  style: const TextStyle(color: Colors.black, fontSize: 32),
                 ),
                 subtitle: Padding(
                   padding: const EdgeInsets.only(top: 16),
                   child: Text(
-                    'add your note here please ziad mohammad alsafe',
+                    data.note,
                     style: TextStyle(
                         color: Colors.black.withOpacity(.4), fontSize: 18),
                   ),
@@ -39,7 +44,10 @@ class Custom_notes_item extends StatelessWidget {
                   icon: const Icon(Icons.delete),
                   color: Colors.black,
                   iconSize: 32,
-                  onPressed: () {},
+                  onPressed: () {
+                    data.delete();
+                    BlocProvider.of<NotesCubit>(context).fetchNotes();
+                  },
                 )),
             Padding(
               padding: const EdgeInsets.only(right: 24, top: 24, bottom: 24),
@@ -47,7 +55,7 @@ class Custom_notes_item extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
-                    'mac 20,2023',
+                    data.time.substring(1, 15),
                     style: TextStyle(
                       color: Colors.black.withOpacity(.4),
                     ),
