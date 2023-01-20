@@ -7,6 +7,8 @@ import 'package:note/model/note_models.dart';
 import 'package:note/widgets/custom_appbar.dart';
 import 'package:note/widgets/custom_text_field.dart';
 
+import '../for_color/list_color_add.dart';
+
 class EditView extends StatefulWidget {
   EditView({
     Key? key,
@@ -37,7 +39,7 @@ class _EditViewState extends State<EditView> {
               },
               title: 'Edit',
               iconV: const Icon(Icons.check, size: 32)),
-          const SizedBox(height: 15),
+          const SizedBox(height: 16),
           CustomTextField(
             hint: widget.note!.title,
             minSize: 1,
@@ -53,6 +55,8 @@ class _EditViewState extends State<EditView> {
               widget.newNote = p0;
             },
           ),
+          const SizedBox(height: 16),
+          ListColorCircle(),
         ]),
       ),
     );

@@ -8,9 +8,10 @@ part 'add_state.dart';
 
 class AddCubit extends Cubit<AddState> {
   AddCubit() : super(AddInitial());
-
+  late int cc;
   addNote(NoteModel data) async {
     emit(AddLoading());
+
     try {
       var newData = Hive.box<NoteModel>(kNewBox);
       await newData.add(data);

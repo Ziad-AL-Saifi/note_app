@@ -24,7 +24,7 @@ class Custom_notes_item extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.only(left: 24, top: 24),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16), color: Colors.amber[200]),
+            borderRadius: BorderRadius.circular(16), color: Color(data.color)),
         child: Column(
           children: [
             ListTile(
